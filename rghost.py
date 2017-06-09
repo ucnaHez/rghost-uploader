@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 
@@ -41,7 +41,7 @@ def upload(filename, upload_filename=None, upload_params=None):
     upload_filename = upload_filename or filename
     browser = create_browser()
     browser.open("http://rghost.ru/")
-    browser.select_form(predicate=lambda form:form.attrs.get('id')=='upload_form')
+    browser.select_form(predicate=lambda form:form.attrs.get('id')=='upload-form')
     with open(filename, 'rb') as f:
         browser.form.add_file(f, 'text/plain', upload_filename)
         browser.submit()
